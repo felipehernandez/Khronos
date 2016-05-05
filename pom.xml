@@ -7,9 +7,22 @@
     <groupId>FH</groupId>
     <artifactId>Chronos</artifactId>
     <version>0.1-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <properties>
         <junit.version>4.11</junit.version>
+        <projectlombok.version>1.16.8</projectlombok.version>
         <spring.version>4.1.6.RELEASE</spring.version>
     </properties>
 
@@ -42,6 +55,13 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- Tools -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${projectlombok.version}</version>
         </dependency>
     </dependencies>
 </project>
