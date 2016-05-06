@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.List;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ChronoSpringConfiguration.class})
 public class TestSuite_Chrono {
@@ -59,7 +57,6 @@ public class TestSuite_Chrono {
         chrono.recordEnd(TESTING_IDENTIFIER);
 
         Assert.assertTrue(chrono.getSummaries().size() == 1);
-        printAllSummaries(chrono.getSummaries());
     }
 
     @Test
@@ -75,7 +72,6 @@ public class TestSuite_Chrono {
         Assert.assertTrue(chrono.getSummaries().size() == 1);
         Assert.assertTrue(chrono.getSummaries().get(0).getAverage() > 10);
         Assert.assertTrue(chrono.getSummaries().get(0).getAverage() < 20);
-        printAllSummaries(chrono.getSummaries());
     }
 
     @Test
@@ -89,15 +85,5 @@ public class TestSuite_Chrono {
         chrono.recordEnd(TESTING_IDENTIFIER_EXTRA);
 
         Assert.assertTrue(chrono.getSummaries().size() == 2);
-        printAllSummaries(chrono.getSummaries());
-    }
-
-    private void printAllSummaries(List<ChronoEntrySummary> summaries) {
-
-        summaries.stream()
-                .forEach(
-                        summary -> System.out.println(summary.toString()
-                        )
-                );
     }
 }
